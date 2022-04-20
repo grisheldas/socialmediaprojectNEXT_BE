@@ -1,0 +1,48 @@
+POST http://localhost:5000/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"grisheflddaaw",
+    "email": "grishelhffghhffda@gmail.com",
+    "password": "mantapcihuy1&"
+}
+
+###
+POST http://localhost:5000/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "grisheflddaaw",
+    "password": "mantapcihuy1&"
+}
+
+###
+POST http://localhost:5000/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"iadsnishelda1",
+    "email":"aad1@gmail.com",
+    "password":"seldsssAa1#"
+}
+
+###
+GET http://localhost:5000/auth/verified HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODMsInVzZXJuYW1lIjoiZ3Jpc2hlZmxkZGFhdyIsInRpbWVjcmVhdGVkIjoxNjQ5ODQ3MTg3ODA3LCJpYXQiOjE2NDk4NDcxODcsImV4cCI6MTY0OTg1NDM4N30.mcnUaRmaVnfWM9rK_0iiMOK5l9-bNn2gm25MAy-o5BQ
+
+
+{
+    
+}
+
+###
+POST http://localhost:5000/auth/sendemail-verified HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsInVzZXJuYW1lIjoiaWFuaXNoZWxkYTEiLCJ0aW1lY3JlYXRlZCI6MTY0OTI1NTg4Mjg2NSwiaWF0IjoxNjQ5MjU1ODgyLCJleHAiOjE2NDkyNjMwODJ9.Yl5yrWJQC2YpqdpAS5dfdi9Cx5puEKDF-OaABxnDmR4
+
+{
+    "id": 47,
+    "username":"ianishelda1",
+    "email":"aa1@gmail.com"
+}
