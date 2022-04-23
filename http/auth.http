@@ -46,3 +46,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsInVzZXJuY
     "username":"ianishelda1",
     "email":"aa1@gmail.com"
 }
+
+###
+GET http://localhost:5000/post/fetchposts?page=0 HTTP/1.1
+Content-Type: application/json

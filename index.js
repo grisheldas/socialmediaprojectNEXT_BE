@@ -15,11 +15,12 @@ app.use(express.json());
 
 app.use(
   cors({
-    exposedHeaders: ["x-token-access"],
+    exposedHeaders: ["x-token-access", "x-total-count"],
   })
 );
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.send("<h1>Backend Teatalk 1.0</h1>");

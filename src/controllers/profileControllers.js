@@ -24,7 +24,9 @@ module.exports = {
       await conn.beginTransaction();
       sql = `update users set ? where id = ?`;
       await conn.query(sql, [updateData, id]);
+      // if(imagePath){
 
+      // }
       sql = `select * from users where id = ?`;
       let [result] = await conn.query(sql, [id]);
       await conn.commit();
@@ -33,6 +35,7 @@ module.exports = {
     } catch (error) {
       conn.rollback();
       conn.release();
+      // if(im)
       console.log(error);
       return res.status(500).send({ message: error.message || error });
     }
