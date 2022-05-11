@@ -15,7 +15,14 @@ app.use(express.json());
 
 app.use(
   cors({
-    exposedHeaders: ["x-token-access", "x-total-count"],
+    exposedHeaders: [
+      "x-token-access",
+      "x-total-count",
+      "x-comments-count",
+      "x-userlikedposts-count",
+      "x-usermediaposts-count",
+      "x-userposts-count",
+    ],
   })
 );
 

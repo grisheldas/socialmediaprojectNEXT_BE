@@ -190,4 +190,70 @@ module.exports = {
       return res.status(200).send({ message: error.message || error });
     }
   },
+
+  sendVerificationEmail: async (req, res) => {
+    const { id } = req.user;
+
+    let conn, sql;
+    try {
+      conn = await dbCon.promise().getConnection();
+
+      sql = `select id, username, email from users where id = ?`;
+      let [result] = await conn.query(sql, id);
+
+      let timecreated = new Date().getTime();
+      const dataToken = {
+        id: id,
+        username: result[0].username,
+        email: result[0].email,
+        timecreated,
+      };
+
+      let success = myCache.set(id, dataToken, 300);
+      if (!success) {
+        throw { message: "error caching" };
+      }
+
+      const tokenEmail = createJwtEmail(dataToken);
+
+      const host =
+        process.env.NODE_ENV === "production"
+          ? "http://yourdomainname"
+          : "http://localhost:3000";
+
+      const link = `${host}/verified/${tokenEmail}`;
+
+      // setting up e-mail for verification
+      let filePath = path.resolve(
+        __dirname,
+        "../template/verificationEmail.html"
+      );
+
+      // change from html to string using fs.readFile
+      let htmlString = fs.readFileSync(filePath, "utf-8");
+      // console.log(htmlString);
+      const template = handlebars.compile(htmlString);
+      const htmlToEmail = template({
+        username: result[0].username,
+        link,
+      });
+      // console.log(htmlToEmail);
+
+      transporter.sendMail({
+        // its actually async
+        from: "Teatalk <gonewithewind1@gmail.com>",
+        // to: result[0].email,
+        to: "grisheldaathallahsilviyana@gmail.com",
+        subject: "Complete your sign up!",
+        html: htmlToEmail,
+      });
+
+      conn.release();
+      return res.status(200).send({ message: "Email sent successfully." });
+    } catch (error) {
+      console.log(error);
+      conn.release();
+      return res.status(500).send({ message: error.message || error });
+    }
+  },
 };

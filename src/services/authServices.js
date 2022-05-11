@@ -48,7 +48,7 @@ module.exports = {
       sql = `select id from users where username = ? or email = ?`;
       let [result] = await conn.query(sql, [username, email]);
       if (result.length) {
-        throw { message: "username or e-mail have been used" };
+        throw { message: "Username or e-mail has been used" };
       }
 
       sql = `INSERT INTO users set ?`;
@@ -94,14 +94,6 @@ module.exports = {
         console.log("test");
         throw { message: "user not found" };
       }
-
-      // let dataToken = {
-      //   id: result[0].id,
-      //   username: result[0].username,
-      //   email: result[0].email,
-      // };
-
-      // let tokenAccess = createJwtAccess(dataToken);
 
       conn.release();
       // res.set("x-access-token", tokenAccess);

@@ -50,3 +50,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsInVzZXJuY
 ###
 GET http://localhost:5000/post/fetchposts?page=0 HTTP/1.1
 Content-Type: application/json
+
+
+###
+GET http://localhost:5000/post/fetchuserposts?page=0 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODYsInVzZXJuYW1lIjoic2hlbGRhIiwiaWF0IjoxNjUxMzAxNjkxLCJleHAiOjE2NTEzMDg4OTF9.miWaR46hCH-vvWFbaPlQY_SpZ_AaMQGaGQ4cy1KcSOE
+
+###
+GET http://localhost:5000/post/fetchuserpostdetail/55 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODYsInVzZXJuYW1lIjoic2hlbGRhIiwiaWF0IjoxNjUxMTU1NzA3LCJleHAiOjE2NTExNjI5MDd9.B24FYDRwKMhHR7NaNL-7nVap0qwm-jWAKtmj1HV_b44
+
+###
+GET http://localhost:5000/post/fetchcomments/76 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODcsInVzZXJuYW1lIjoibmFtam9vaHl1ayIsImlhdCI6MTY1MTg4MDA2MiwiZXhwIjoxNjUxODg3MjYyfQ.FArWO8zlmsPpJQ3YMfkh2PEWvoI8OavcG89iQDEVwv4
+
+###
+POST http://localhost:5000/post/addlike/76 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODcsInVzZXJuYW1lIjoibmFtam9vaHl1ayIsImlhdCI6MTY1MTkzMjc0OCwiZXhwIjoxNjUxOTM5OTQ4fQ.Pp1zpb54Qm9Mxpf7qgd1t7P4kC4fBaPYKvigVTj0ooM
