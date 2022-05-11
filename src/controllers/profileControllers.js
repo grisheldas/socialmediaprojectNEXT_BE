@@ -22,10 +22,12 @@ module.exports = {
       conn = await dbCon.promise().getConnection();
       await conn.beginTransaction();
 
-      sql = `select id from users where username = ?`;
-      let [usernameFound] = await conn.query(sql, updateData.username);
-      if (usernameFound.length) {
-        throw { message: "Username has been used" };
+      if (updateData.username) {
+        sql = `select id from users where username = ?`;
+        let [usernameFound] = await conn.query(sql, updateData.username);
+        if (usernameFound.length) {
+          throw { message: "Username has been used" };
+        }
       }
 
       sql = `select * from users where id = ?`;
